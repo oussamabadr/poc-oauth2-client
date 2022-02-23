@@ -12,7 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class SpringSecurityClientTest {
 
-    private OAuth2RestOperations oAuth2RestOperations;
     private static final Pattern uuidRegex = Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$");
 
 
@@ -25,7 +24,8 @@ class SpringSecurityClientTest {
         details.setClientSecret("test_secret");
         details.setScope(List.of("read_write"));
 
-        oAuth2RestOperations = new OAuth2RestTemplate(details);
+        // And
+        OAuth2RestOperations oAuth2RestOperations = new OAuth2RestTemplate(details);
 
         // When
         var token = oAuth2RestOperations.getAccessToken().getValue();
