@@ -1,4 +1,4 @@
-package org.example;
+package org.badr.poc.oauth2;
 
 
 public class App {
